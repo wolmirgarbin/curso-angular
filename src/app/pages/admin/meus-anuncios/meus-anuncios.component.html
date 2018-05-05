@@ -2,7 +2,10 @@
   <div class="col-md-8">
     <p>Estes são os seus anúncios.</p>
 
-    <p-selectButton [options]="status" [(ngModel)]="selectedStatus"></p-selectButton>
+    <p-selectButton
+        [options]="status"
+        [(ngModel)]="selectedStatus"
+        (onOptionClick)="onOptionClick($event)"></p-selectButton>
 
   </div>
   <div class="col-md-4 text-right">
@@ -10,6 +13,7 @@
   </div>
 </div>
 
+<br><br>
 
 <div class="row">
   <div class="col-md-12">
@@ -19,9 +23,10 @@
         <tr>
             <td style="width: 140px"></td>
             <td>
-              <a href="#">Titulo do anúncio - {{anuncio}}</a>
-              <span class="line-info">R$ 200,00</span>
-              <span class="line-info">127 visitas - 13/03/2018 22:22</span>
+              <a href="#">{{anuncio.titulo}}</a>
+              <span class="line-info">{{anuncio.valor | currency}}</span>
+              <span class="line-info">{{anuncio.status | status}}</span>
+              <span class="line-info">{{anuncio.visualizacoes}} visitas - {{anuncio.dataHoraCadastro | date:'dd/MM/yyyy hh:mm'}}</span>
               <a href="#">Editar</a> <a href="#">Excluir</a>
             </td>
             <td style="width: 200px;" class="text-center">

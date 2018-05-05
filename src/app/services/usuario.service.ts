@@ -5,11 +5,13 @@ import { environment } from "../../environments/environment";
 import { UsuarioAcesso } from "../model/usuario-acesso";
 import { Usuario } from "../model/usuario";
 import { catchError } from 'rxjs/operators';
+import { MessageService } from "./message.service";
 
 @Injectable()
 export class UsuarioService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+              private messageService: MessageService) {}
 
   existeEmail(email: string): Observable<Boolean> {
     return this.http.get<Boolean>(
@@ -29,9 +31,9 @@ export class UsuarioService {
     return (error: any): Observable<T> => {
 
       if ( error.error.message ) {
-        alert( error.error.message );
+        this.messageService.messageError( error.error.message );
       } else {
-        alert( message );
+        this.messageService.messageError( message );
       }
 
       console.log(`log: ${error}`);

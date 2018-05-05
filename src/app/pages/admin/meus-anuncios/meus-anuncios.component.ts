@@ -26,4 +26,10 @@ export class MeusAnunciosComponent {
             .subscribe( res => this.anuncios = res );
   }
 
+  onOptionClick(event: any) {
+    this.anuncioService
+            .findAllByStatus( event.option.value )
+            .subscribe( res => this.anuncios = res );
+  }
+
 }

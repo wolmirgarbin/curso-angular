@@ -9,6 +9,8 @@ import { CadastroModule } from './pages/cadastro/cadastro.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AdminModule } from './pages/admin/admin.module';
 import { AdminHttpInterceptor } from './admin-http.interceptor';
+import { MessageComponent } from './components/message/message.component';
+import { MessageService } from './services/message.service';
 
 export const httpInterceptorProviders = [
   { provide: HTTP_INTERCEPTORS, useClass: AdminHttpInterceptor, multi: true }
@@ -16,7 +18,8 @@ export const httpInterceptorProviders = [
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ export const httpInterceptorProviders = [
     AppRoutingModule
   ],
   providers: [
-    httpInterceptorProviders
+    httpInterceptorProviders,
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

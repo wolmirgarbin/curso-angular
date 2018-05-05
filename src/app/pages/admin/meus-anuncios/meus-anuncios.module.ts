@@ -5,6 +5,7 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import { FormsModule } from "@angular/forms";
 import { TableModule } from 'primeng/table';
 import { AnuncioService } from "../../../services/anuncio.service";
+import { StatusPipe } from "../../../pipes/status.pipe";
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { AnuncioService } from "../../../services/anuncio.service";
     TableModule
   ],
   declarations: [
-    MeusAnunciosComponent
+    MeusAnunciosComponent,
+    StatusPipe
   ],
   exports: [
     MeusAnunciosComponent
