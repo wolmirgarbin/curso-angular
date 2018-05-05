@@ -1,1 +1,36 @@
-home
+<div class="row">
+  <div class="col-md-8">
+    <p>Estes são os seus anúncios.</p>
+
+    <p-selectButton [options]="status" [(ngModel)]="selectedStatus"></p-selectButton>
+
+  </div>
+  <div class="col-md-4 text-right">
+    <button routerLink="/anunciar" class="btn-inserir">Cadastrar Anúncio</button>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-12">
+
+    <p-table class="no-border" [value]="anuncios">
+      <ng-template pTemplate="body" let-anuncio>
+        <tr>
+            <td style="width: 140px"></td>
+            <td>
+              <a href="#">Titulo do anúncio - {{anuncio}}</a>
+              <span class="line-info">R$ 200,00</span>
+              <span class="line-info">127 visitas - 13/03/2018 22:22</span>
+              <a href="#">Editar</a> <a href="#">Excluir</a>
+            </td>
+            <td style="width: 200px;" class="text-center">
+                <button routerLink="/anunciar" class="btn-destaque">Destacar anúncio</button>
+                <a class="link-ajuda" href="#">Como funciona?</a>
+            </td>
+        </tr>
+      </ng-template>
+    </p-table>
+
+  </div>
+</div>

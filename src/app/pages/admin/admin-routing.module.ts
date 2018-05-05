@@ -13,7 +13,8 @@ const rotas: Routes = [
       AdminCanActivate
     ],
     children: [
-      { path: '', component: MeusAnunciosComponent },
+      { path: '', redirectTo: 'meus-anuncios' },
+      { path: 'meus-anuncios', component: MeusAnunciosComponent },
       { path: 'meu-cadastro', component: MeuCadastroComponent }
     ]
   }
